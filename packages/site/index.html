@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Nimiq MetaMask Snap</title>
+</head>
+
+<body>
+  <h1>Test Nimiq MetaMask Snap</h1>
+  <button id="connect">Connect with MetaMask</button>
+  <hr>
+  <h2>Derive a public key based on your MetaMask Secret Recovery Phrase and BIP32/BIP44/SLIP10</h2>
+  <p>Input the BIP44 address index:</p>
+  <input type="number" id="bip44AddressIndex" min="0" value="0">
+  <br> <br>
+  <button id="getPubkey">Get public key</button>
+
+  <hr>
+  <h2>Sign a message with address m/44'/242'/0'/0'</h2>
+  <p>Input message:</p>
+  <input type="text" id="inputSignMessage" value="Hello Nimiq!">
+  <br><br>
+  <button id="signMessage">Sign message</button>
+
+  <h2 style="margin-top: 100px;">Response MetaMask:</h2>
+  <div id="output"></div>
+
+  <script src="https://cdn.nimiq.com/latest/nimiq.js"></script>
+  <script type="text/javascript">
+    (async () => {
+      await Nimiq.load()
+    })()
+  </script>
+
+  <script>
+    const snapId = `local:http://localhost:8080/`;
+
+    const connectButton = document.getElementById('connect')
+    const getPubkeyButton = document.getElementById('getPubkey')
+    const signMessageButton = document.getElementById('signMessage')
+    const output = document.getElementById('output')
+
+    connectButton.addEventListener('click', connect)
+    getPubkeyButton.addEventListener('click', getPublicKey)
+    signMessageButton.addEventListener('click', signMessage)
+
+    async function connect() {
+      await ethereum.request({
+        method: 'wallet_requestSnaps',
+        params: { [snapId]: {} }
+      })
+    }
+
+    async function getPublicKey() {
+      try {
+        const index = parseInt(document.getElementById('bip44AddressIndex').value);
+
+        const response = await ethereum.request({
+          method: 'wallet_snap',
+          params: {
+            snapId,
+            request: {
+              method: 'getPublicKey',
+              params: {
+                account: 0,
+                index
+              }
+            }
+          }
+        })
+
+        const pk = Nimiq.PublicKey.fromAny(response.publicKey)
+        output.innerText = `Public key: ` + response.publicKey + ` - ${pk.toAddress().toUserFriendlyAddress()}`
+      } catch (error) {
+        output.innerText = `Error: ${error.message}`
+      }
+    }
+
+    async function signMessage() {
+      try {
+        const message = document.getElementById('inputSignMessage').value
+
+        const response = await ethereum.request({
+          method: 'wallet_snap',
+          params: {
+            snapId,
+            request: {
+              method: 'signMessage',
+              params: {
+                account: 0,
+                index: 0,
+                message
+              }
+            }
+          }
+        })
+        output.innerText = `Signature: ${response.signature} - signer: ${response.publicKey}`
+      } catch (error) {
+        output.innerText = `Error: ${error.message}`
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+{
+  "name": "site",
+  "packageManager": "yarn@3.2.1",
+  "scripts": {
+    "start": "python3 -m http.server"
+  }
+}
