@@ -1,6 +1,8 @@
 import { SLIP10Node } from '@metamask/key-tree';
-import { InternalError } from '@metamask/snaps-sdk';
+import { InternalError, UserRejectedRequestError } from '@metamask/snaps-sdk';
 import nacl from 'tweetnacl';
+
+import { dialogSignMessage } from './dialogs';
 
 /**
  * Derive a public key based on the provided account and index.
@@ -29,6 +31,14 @@ export async function signMessage(
 ) {
   const accountNode = await getAccount(account);
   const addressNode = await getAddress(accountNode, index);
+
+  const confirmation = await dialogSignMessage(
+    Buffer.from(addressNode.compressedPublicKey.slice(4), 'hex'),
+    message,
+  );
+  if (!confirmation) {
+    throw new UserRejectedRequestError();
+  }
 
   if (!addressNode.privateKeyBytes) {
     throw new InternalError(
