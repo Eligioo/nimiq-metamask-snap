@@ -2915,6 +2915,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/blake2b@npm:^2.1.3":
+  version: 2.1.3
+  resolution: "@types/blake2b@npm:2.1.3"
+  checksum: 55a6ed7123a7adc82cc51131644b6c035c28142d028fbc23fe06251c76583ee3303d73204e21de8ea075ef84a04c4ed424754f5035fed20730a85272620a0de3
+  languageName: node
+  linkType: hard
+
 "@types/bn.js@npm:^5.1.5":
   version: 5.1.5
   resolution: "@types/bn.js@npm:5.1.5"
@@ -3739,6 +3746,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"b4a@npm:^1.0.1":
+  version: 1.6.6
+  resolution: "b4a@npm:1.6.6"
+  checksum: c46a27e3ac9c84426ae728f0fc46a6ae7703a7bc03e771fa0bef4827fd7cf3bb976d1a3d5afff54606248372ab8fdf595bd0114406690edf37f14d120630cf7f
+  languageName: node
+  linkType: hard
+
 "b4a@npm:^1.6.4":
   version: 1.6.4
   resolution: "b4a@npm:1.6.4"
@@ -3936,6 +3950,26 @@ __metadata:
     inherits: ^2.0.4
     readable-stream: ^3.4.0
   checksum: 9e8521fa7e83aa9427c6f8ccdcba6e8167ef30cc9a22df26effcc5ab682ef91d2cbc23a239f945d099289e4bbcfae7a192e9c28c84c6202e710a0dfec3722662
+  languageName: node
+  linkType: hard
+
+"blake2b-wasm@npm:^2.4.0":
+  version: 2.4.0
+  resolution: "blake2b-wasm@npm:2.4.0"
+  dependencies:
+    b4a: ^1.0.1
+    nanoassert: ^2.0.0
+  checksum: 1839dd0693681228d81f781dd8680a6803a629ca374aed5ac02fa649ce40a67a85eb49eeb2ec6aeb7ef3ef5aa169b3579b50eabf7afa360d190338bc3e8666bd
+  languageName: node
+  linkType: hard
+
+"blake2b@npm:^2.1.4":
+  version: 2.1.4
+  resolution: "blake2b@npm:2.1.4"
+  dependencies:
+    blake2b-wasm: ^2.4.0
+    nanoassert: ^2.0.0
+  checksum: cd598c96d459017714b7f9cb8892ef2b0a94f362e26e6baa46b7b8b189af0006ce25ab1713e3ec1484eb18ce7ebe1eb24e07d01e42ab1147067de2419c7f6158
   languageName: node
   linkType: hard
 
@@ -8093,6 +8127,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nanoassert@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "nanoassert@npm:2.0.0"
+  checksum: b1d366f9524405f3337192d32dda6ac0b02374e4d0550c9aad33480caf2eb3c84c06f18f41f4c5404c14f6fc1ae6b84692b4375166dcb9f2d04a2ea9b9bccba0
+  languageName: node
+  linkType: hard
+
 "nanoid@npm:^3.1.31":
   version: 3.3.7
   resolution: "nanoid@npm:3.3.7"
@@ -9599,8 +9640,10 @@ __metadata:
     "@metamask/snaps-cli": ^6.1.0
     "@metamask/snaps-jest": ^6.0.2
     "@metamask/snaps-sdk": ^3.2.0
+    "@types/blake2b": ^2.1.3
     "@typescript-eslint/eslint-plugin": ^5.42.1
     "@typescript-eslint/parser": ^5.42.1
+    blake2b: ^2.1.4
     buffer: ^6.0.3
     eslint: ^8.45.0
     eslint-config-prettier: ^8.5.0
