@@ -9,9 +9,9 @@ import { getPublicKey, signMessage } from './rpcHandlers';
 
 export const onRpcRequest: OnRpcRequestHandler = async ({ request }) => {
   const { account, index, message } = request.params as {
-    account?: number;
-    index?: number;
-    message?: string;
+    account?: unknown;
+    index?: unknown;
+    message?: unknown;
   };
 
   switch (request.method) {
