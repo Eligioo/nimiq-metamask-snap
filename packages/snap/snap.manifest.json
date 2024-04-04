@@ -1,17 +1,18 @@
 {
   "version": "0.1.0",
-  "description": "A MetaMask Snap for Nimiq.",
+  "description": "Manage your NIM and BTC stored with MetaMask.",
   "proposedName": "Nimiq Wallet",
   "repository": {
     "type": "git",
     "url": "https://github.com/Eligioo/nimiq-metamask-snap.git"
   },
   "source": {
-    "shasum": "k8+3TxHARwvh92+ZKcdcoMhq1iKjJETJTEIZUpF0uiw=",
+    "shasum": "qdXzZi2TmIrbwSO3csFc2BrFwiLuSRtavHmbboZ4fq0=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
-        "packageName": "snap",
+        "iconPath": "logo.svg",
+        "packageName": "nimiq-wallet-snap",
         "registry": "https://registry.npmjs.org/"
       }
     }
@@ -26,6 +27,14 @@
           "242'"
         ],
         "curve": "ed25519"
+      },
+      {
+        "path": [
+          "m",
+          "84'",
+          "0'"
+        ],
+        "curve": "secp256k1"
       }
     ],
     "endowment:rpc": {
