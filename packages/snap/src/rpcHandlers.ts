@@ -27,14 +27,14 @@ export async function getPublicKey(account: number, index: number) {
 export async function signMessage(
   account: number,
   index: number,
-  message: string,
+  message: Uint8Array,
 ) {
   const accountNode = await getAccount(account);
   const addressNode = await getAddress(accountNode, index);
 
   const confirmation = await dialogSignMessage(
     Buffer.from(addressNode.compressedPublicKey.slice(4), 'hex'),
-    message,
+    new TextDecoder().decode(message),
   );
   if (!confirmation) {
     throw new UserRejectedRequestError();
@@ -50,7 +50,7 @@ export async function signMessage(
     Uint8Array.from(addressNode.privateKeyBytes),
   );
 
-  const signature = nacl.sign.detached(Buffer.from(message), keyPair.secretKey);
+  const signature = nacl.sign.detached(message, keyPair.secretKey);
 
   return {
     publicKey: addressNode.compressedPublicKey.slice(4),

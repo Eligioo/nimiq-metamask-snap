@@ -91,7 +91,7 @@
               params: {
                 account: 0,
                 index: 0,
-                message
+                message: Array.from(new TextEncoder().encode(message))
               }
             }
           }

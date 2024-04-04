@@ -8,7 +8,10 @@ import { Address } from './nimiq/address';
  * @param message - The message that will be signed.
  * @returns A confirmation dialog.
  */
-export async function dialogSignMessage(publicKey: Buffer, message: string) {
+export async function dialogSignMessage(
+  publicKey: Uint8Array,
+  message: string,
+) {
   return snap.request({
     method: 'snap_dialog',
     params: {

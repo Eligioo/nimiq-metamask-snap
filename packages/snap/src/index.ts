@@ -30,11 +30,12 @@ export const onRpcRequest: OnRpcRequestHandler = async ({ request }) => {
         throw new InvalidParamsError();
       } else if (account < 0 || index < 0) {
         throw new InvalidInputError();
-      } else if (typeof message !== 'string') {
+      } else if (!Array.isArray(message)) {
         throw new InvalidParamsError();
       }
 
-      const signature = await signMessage(account, index, message);
+      const bytes = Uint8Array.from(message);
+      const signature = await signMessage(account, index, bytes);
 
       return {
         publicKey: signature.publicKey,
