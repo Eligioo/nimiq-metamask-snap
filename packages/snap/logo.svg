@@ -1,0 +1,11 @@
+<svg width="500" height="500" xmlns="http://www.w3.org/2000/svg" stroke-miterlimit="2" stroke-linejoin="round" fill-rule="evenodd" clip-rule="evenodd">
+ <defs>
+  <radialGradient r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(359.46710205078125,0,0,-359.46710205078125,334.86676025390625,392.77435302734375)" cy="0" cx="0" id="a">
+   <stop stop-color="#ec991c" offset="0"/>
+   <stop stop-color="#e9b213" offset="1"/>
+  </radialGradient>
+ </defs>
+ <g>
+  <path stroke="null" id="svg_1" fill-rule="nonzero" fill="url(#a)" d="m439.41988,234.28427l-80.392,-137.81486c-6.04451,-9.67122 -16.92463,-15.71573 -28.4092,-15.71573l-160.78401,0c-11.48457,0 -22.36469,6.04451 -27.80475,15.71573l-80.99645,137.81486c-6.04451,9.67122 -6.04451,21.76024 0,32.03591l80.392,137.21041c6.04451,9.67122 16.32018,15.71573 27.80475,15.71573l161.38846,0c11.48457,0 22.36469,-6.04451 28.4092,-15.71573l80.392,-137.81486c5.44006,-9.67122 5.44006,-21.76024 0,-31.43146z"/>
+ </g>
+</svg>

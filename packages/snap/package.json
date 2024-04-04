@@ -1,7 +1,7 @@
 {
-  "name": "snap",
+  "name": "nimiq-wallet-snap",
   "version": "0.1.0",
-  "description": "MetaMask Snap, written in TypeScript.",
+  "description": "Manage your NIM and BTC stored with MetaMask.",
   "repository": {
     "type": "git",
     "url": "https://github.com/Eligioo/nimiq-metamask-snap.git"
