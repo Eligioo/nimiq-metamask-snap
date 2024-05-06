@@ -6,7 +6,7 @@ updates:
   - package-ecosystem: 'npm'
     directory: '/'
     schedule:
-      interval: 'daily'
+      interval: 'monthly'
       time: '06:00'
     allow:
       - dependency-name: '@metamask/*'
